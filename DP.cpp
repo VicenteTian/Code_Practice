@@ -1,5 +1,23 @@
 #include <iostream>
 using namespace std;
+/*斐波那契数列*/
+int Fib(int n)
+{
+    if (n < 1)
+    {
+        return 0;
+    }
+    //base case
+    int *dp = new int[n + 1];
+    dp[0] = 0;
+    dp[1] = 1;
+    //状态转移
+    for (int i = 2; i <= n; i++)
+    {
+        dp[i] = dp[i - 1] + dp[i - 2];
+    }
+    return dp[n];
+}
 /*挖金矿
 发现的金矿数目N
 提供的工人数目W
