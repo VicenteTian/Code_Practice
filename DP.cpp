@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 /*斐波那契数列*/
 int Fib(int n)
@@ -17,6 +18,24 @@ int Fib(int n)
         dp[i] = dp[i - 1] + dp[i - 2];
     }
     return dp[n];
+}
+/*零钱兑换*/
+int coinChange(vector<int> &coins, int amount)
+{
+    int Max = amount + 1;
+    vector<int> dp(amount + 1, Max);
+    dp[0] = 0;
+    for (int i = 1; i <= amount; ++i)
+    {
+        for (int j = 0; j < (int)coins.size(); ++j)
+        {
+            if (coins[j] <= i)
+            {
+                dp[i] = min(dp[i], dp[i - coins[j]] + 1);
+            }
+        }
+    }
+    return dp[amount] > amount ? -1 : dp[amount];
 }
 /*挖金矿
 发现的金矿数目N

@@ -3,6 +3,8 @@
         "iostream": "cpp",
         "ostream": "cpp",
         "new": "cpp",
-        "hash_map": "cpp"
+        "hash_map": "cpp",
+        "random": "cpp",
+        "limits": "cpp"
     }
 }
